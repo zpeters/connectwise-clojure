@@ -38,7 +38,7 @@ Create a test-config.edn file in the root directory
 *Get the second page of results*
 `(get-connectwise "/service/tickets" {:conditions "company/name='XYZ'" :page 2})`
 
-(See the official [connectwise api docs] (https://developer.connectwise.com/Products/Manage/Developer_Guide) for more details on parameters and formatting)
+(See the official [connectwise api docs](https://developer.connectwise.com/Products/Manage/Developer_Guide) for more details on parameters and formatting)
 
 ## License
 
