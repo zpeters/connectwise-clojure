@@ -1,10 +1,12 @@
 # connectwise
 
-A Clojure library designed to ... well, that part is up to you.
+This is a simple Clojure library for Connectwise Manage
 
 ## Usage
 
 FIXME
+ 
+add configuration and usage details
 
 ## License
 
