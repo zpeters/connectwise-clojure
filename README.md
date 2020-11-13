@@ -2,15 +2,30 @@
 
 This is a simple Clojure library for Connectwise Manage
 
-## Usage
+## Configuration
+The following env vars need to be set:
+- connectwise-public-key 
+- connectwise-private-key
+- connectwise-company-id
+- connectwise-client-id
 
-FIXME
+### Testing
+Create a test-config.edn file in the root directory
+
+### Sample edn file
+{
+ :connectwise-public-key "YOUR PUBLIC KEY"
+ :connectwise-private-key "YOUR PRIVATE KEY"
+ :connectwise-company-id "your company"
+ :connectwise-client-id "YOUR CLIENT ID"
+ }
  
-add configuration and usage details
+## Usage
+(See tests for now)
 
 ## License
 
-Copyright © 2020 FIXME
+Copyright © 2020
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
