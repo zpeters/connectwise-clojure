@@ -1,3 +1,5 @@
-# Introduction to connectwise
-
-TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)
+# Introduction to Connectwise
+ 
+Connectwise is a very simple Clojure library for Connectwise Manage.
+ 
+This is my first Clojure library so in its current state it is very *ALPHA* and my not follow idiomatic Clojure standards.

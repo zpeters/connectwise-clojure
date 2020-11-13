@@ -25,7 +25,14 @@
   {"Authorization" (str "Basic " (b64/encode-str (str company-id "+" public-key ":" private-key)))
    "clientid" client-id})
 
-(defn get-connectwise "gets a connectwise url" [path & [params]]
+(defn get-connectwise
+  "Gets a connectwise *path* and returns the results in a hash-map
+  Per the connectwise spec we will return 25 results, unless *pagesize* is specified through the optional params
+  Generally you want to use this if you are only expecting one result (ie /system/info)
+
+  The optional params are a hash-map.  See README.md for examples
+  "
+  [path & [params]]
   (->
    (gen-connectwise-url path)
    (client/get {:headers (gen-auth-header (public-key) (private-key) (company-id) (client-id))
@@ -48,7 +55,14 @@
    (as-> page (get page "Link" "Missing"))
    (includes? "next")))
 
-(defn get-all-connectwise "gets a connectwise url, gets all results through pagination" [path & [params]]
+  (defn get-all-connectwise "
+  Gets a connectwise *path* and returns the results in a seq of hash-maps
+  This will get *all* results, so take care to specify conditions via the params
+
+  See README.md for examples
+  "
+
+    [path & [params]]
   (loop
    [acc []
     current-page 1]

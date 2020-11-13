@@ -1,4 +1,4 @@
-# connectwise
+# Connectwise
 
 This is a simple Clojure library for Connectwise Manage
 
@@ -13,15 +13,28 @@ The following env vars need to be set:
 Create a test-config.edn file in the root directory
 
 ### Sample edn file
+```
 {
  :connectwise-public-key "YOUR PUBLIC KEY"
  :connectwise-private-key "YOUR PRIVATE KEY"
  :connectwise-company-id "your company"
  :connectwise-client-id "YOUR CLIENT ID"
  }
- 
+```
 ## Usage
-(See tests for now)
+*Get System info*
+`(get-connectwise "/system/info")`
+
+*Get a member named foobar*
+`(get-connectwise "/system/members" {:conditions "identifier='foobar'"})`
+
+*Get all tickets for company XYZ*
+`(get-all-connectwise "/service/tickets" {:conditions "company/name='XYZ'"})`
+
+*Get the second page of results*
+`(get-connectwise "/service/tickets" {:conditions "company/name='XYZ'" :page 2})`
+
+(See the official [connectwise api docs] (https://developer.connectwise.com/Products/Manage/Developer_Guide) for more details on parameters and formatting)
 
 ## License
 
