@@ -2,6 +2,10 @@
 
 This is a simple Clojure library for Connectwise Manage
 
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.zpeters/connectwise.svg)](https://clojars.org/org.clojars.zpeters/connectwise)
+[![cljdoc badge](https://cljdoc.org/badge/org.clojars.zpeters/connectwise)](https://cljdoc.org/d/org.clojars.zpeters/connectwise/CURRENT)
+![Clojure CI](https://github.com/zpeters/connectwise-clojure/workflows/Clojure%20CI/badge.svg)
+
 ## Configuration
 The following env vars need to be set:
 - connectwise-public-key 
