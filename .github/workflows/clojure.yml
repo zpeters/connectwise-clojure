@@ -16,4 +16,9 @@ jobs:
     - name: Install dependencies
       run: lein deps
     - name: Run tests
+      env:
+        connectwise-public-key: ${{ secrets.PUBLIC_KEY }} 
+        connectwise-private-key: ${{ secrets.PRIVATE_KEY }} 
+        connectwise-company-id: ${{ secrets.COMPANY_ID }} 
+        connectwise-client-id: ${{ secrets.CLIENT_ID }}
       run: lein test
