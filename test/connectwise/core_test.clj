@@ -1,6 +1,6 @@
 (ns connectwise.core-test
-  (:require [clojure.test :refer :all]
-            [connectwise.core :refer [get-connectwise get-all-connectwise]]))
+  (:require [clojure.test :refer [deftest testing is]]
+           [connectwise.core :refer [get-connectwise get-all-connectwise]]))
 
 
 (deftest get-connectwise-test
@@ -11,7 +11,9 @@
   (testing "gets using conditions"
     (testing "get some members, page size 26" (is (= 26 (count (get-connectwise "/system/members" {:pagesize 26})))))
     (testing "get some members, just zpeters" (is (= 1 (count (get-connectwise "/system/members" {:conditions "identifier='zpeters'"})))))
-    (testing "get a lot of members, just zpeters" (is (= 1 (count (get-connectwise "/system/members" {:conditions "identifier='zpeters'" :pagesize 200}))))))
+    (testing "get a lot of members, just zpeters" (is (= 1 (count (get-connectwise "/system/members" {:conditions "identifier='zpeters'" :pagesize 200})))))))
+
+(deftest get-all-connectwise-test
   (testing "get all"
     (testing "members should match"
       (is (= (get-connectwise "/system/members" {:pagesize 400}) (get-all-connectwise "/system/members"))))
