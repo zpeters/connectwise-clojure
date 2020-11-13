@@ -20,7 +20,7 @@
     (testing "get all system members should be greater than 25"
       (is (> (count (get-all-connectwise "/system/members")) 25)))
     (testing "we should merge over a set page size"
-      (is (= 152 (count (get-all-connectwise "/system/members" {:pagesize 10})))))
+      (is (> (count (get-all-connectwise "/system/members" {:pagesize 10})) 50)))
     (testing "members count should match count from api"
       (is (=
            (:count (get-connectwise "/system/members/count"))
