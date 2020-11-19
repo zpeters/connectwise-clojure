@@ -41,7 +41,7 @@ Create a test-config.edn file in the root directory
 *Post an activity*
 `response (post-connectwise "/sales/activities" {:name "Test Message" :assignTo {:identifier "zpeters"}}`
 
-(See the official [connectwise api docs] (https://developer.connectwise.com/Products/Manage/Developer_Guide) for more details on parameters and formatting)
+(See the official [connectwise api docs](https://developer.connectwise.com/Products/Manage/Developer_Guide) for more details on parameters and formatting)
 
 ## License
 
