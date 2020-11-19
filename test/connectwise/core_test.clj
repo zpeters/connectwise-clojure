@@ -1,6 +1,6 @@
 (ns connectwise.core-test
   (:require [clojure.test :refer [deftest testing is]]
-           [connectwise.core :refer [get-connectwise get-all-connectwise]]))
+           [connectwise.core :refer [get-connectwise get-all-connectwise post-connectwise]]))
 
 
 (deftest get-connectwise-test
@@ -25,3 +25,27 @@
       (is (=
            (:count (get-connectwise "/system/members/count"))
            (count (get-all-connectwise "/system/members" {:fields "identifier"})))))))
+
+
+(deftest post-connectwise-test
+  (testing "create an activity"
+    (testing "this is a well formed activity"
+      (    let [
+                activity {:name "Test Message" :assignTo {:identifier "zpeters"}}
+                response (post-connectwise "/sales/activities" activity)
+                ]
+       (is (= "Test Message" (:name response)))
+       (is (= "Zach Peters" (get-in response [:assignTo :name])))
+       (is (contains? response :currency))
+       (is (contains? response :status))
+       )
+      )
+    (testing "this is a malformed activity"
+      (    let [
+                activity {:fake "bad bad"}
+                ]
+       (is (thrown? clojure.lang.ExceptionInfo (post-connectwise "/sales/activities" activity)
+))
+       )
+      )
+    ))

@@ -2,7 +2,7 @@
   (:require
    [config.core :refer [env]]
    [clj-http.client :as client]
-   [cheshire.core :refer [parse-string]]
+   [cheshire.core :refer [parse-string generate-string]]
    [clojure.string :refer [includes?]]
    [tupelo.base64 :as b64])
   (:gen-class))
@@ -23,7 +23,22 @@
   "generates a header (map) with everything needed to authenticate"
   [public-key private-key company-id client-id]
   {"Authorization" (str "Basic " (b64/encode-str (str company-id "+" public-key ":" private-key)))
-   "clientid" client-id})
+   "clientid" client-id
+   "Content-Type" "application/json"})
+
+(defn post-connectwise
+  "Posts to a connectwise path.  The result (per the connectwise api) is the newly created object.  The payload is a hashmap that gets encoded into json  See README.md for examples"
+  [path payload & [params]]
+  (->
+   (gen-connectwise-url path)
+   (client/post {:headers (gen-auth-header (public-key) (private-key) (company-id) (client-id))
+                 :body (generate-string payload)
+                :query-params params
+                :socket-timeout 30000 :connection-timeout 30000})
+   (get :body)
+   (as-> body (parse-string body true))
+   )
+  )
 
 (defn get-connectwise
   "Gets a connectwise *path* and returns the results in a hash-map
