@@ -8,7 +8,7 @@
                  [clj-http "3.10.3"]
                  [cheshire "5.10.0"]
                  [yogthos/config "1.1.7"]
-                 [tupelo "20.08.27"]
+                 [tupelo "20.11.23c"]
                  ]
   :jvm-opts ["-Dconfig=test-config.edn"]
   :repl-options {:init-ns connectwise.core})
