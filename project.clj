@@ -5,7 +5,7 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [
                  [org.clojure/clojure "1.10.3"]
-                 [clj-http "3.12.2"]
+                 [clj-http "3.12.3"]
                  [cheshire "5.10.0"]
                  [yogthos/config "1.1.8"]
                  [tupelo "21.06.15"]
