@@ -7,7 +7,7 @@
                  [org.clojure/clojure "1.10.3"]
                  [clj-http "3.12.2"]
                  [cheshire "5.10.0"]
-                 [yogthos/config "1.1.8"]
+                 [yogthos/config "1.2.0"]
                  [tupelo "21.06.15"]
                  ]
   :jvm-opts ["-Dconfig=test-config.edn"]
