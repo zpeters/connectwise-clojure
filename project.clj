@@ -6,7 +6,7 @@
   :dependencies [
                  [org.clojure/clojure "1.10.3"]
                  [clj-http "3.12.2"]
-                 [cheshire "5.10.0"]
+                 [cheshire "5.12.0"]
                  [yogthos/config "1.1.8"]
                  [tupelo "21.06.15"]
                  ]
